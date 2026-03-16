@@ -1,0 +1,305 @@
+/* ================================================================
+   LOGIN.CSS — Tela de entrada Shekinah IAD
+   ================================================================ */
+
+#tela-login {
+  min-height: 100vh;
+  display: flex;
+  background: var(--brand-800);
+}
+
+/* ===== Painel visual esquerdo ===== */
+.login-visual {
+  width: 44%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 48px;
+  overflow: hidden;
+}
+.login-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 30% 30%, rgba(77,83,160,0.3) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 70% at 70% 80%, rgba(19,27,128,0.4) 0%, transparent 60%),
+    linear-gradient(165deg, var(--brand-800) 0%, var(--brand-900) 100%);
+}
+/* Grade sutil */
+.login-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(77,83,160,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77,83,160,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.login-visual-inner {
+  position: relative; z-index: 1;
+  text-align: center;
+  max-width: 380px;
+}
+
+/* Logo circular */
+.login-logo-wrap {
+  margin-bottom: 28px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-logo-wrap::before {
+  content: '';
+  position: absolute;
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(77,83,160,0.3), transparent);
+  filter: blur(20px);
+}
+.login-logo {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative; z-index: 1;
+  border: 2px solid rgba(255,255,255,0.15);
+  box-shadow: 0 0 40px rgba(77,83,160,0.5), 0 0 80px rgba(19,27,128,0.3);
+}
+
+.login-church-name {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 6px;
+}
+.login-system-name {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.login-tagline {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.35);
+  font-weight: 700;
+}
+
+/* Divisor */
+.login-divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 28px 0;
+}
+.login-divider::before, .login-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(77,83,160,0.5), transparent);
+}
+.login-divider .div-icon { font-size: 14px; color: rgba(255,255,255,0.2); }
+
+/* Versículo */
+.login-versiculo {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(77,83,160,0.3);
+  border-left: 3px solid var(--brand-400);
+  border-radius: var(--r-md);
+  padding: 18px 20px;
+  text-align: left;
+}
+.login-versiculo q {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.login-versiculo cite {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--brand-300);
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* ===== Painel direito — formulário ===== */
+.login-form-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 48px;
+  background: var(--bg-base);
+  position: relative;
+}
+.login-form-side::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 15%; bottom: 15%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--border-accent), transparent);
+}
+
+.login-form-box {
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form-box .form-eyebrow {
+  font-size: 11px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--brand-400); margin-bottom: 8px;
+}
+.login-form-box h2 {
+  font-size: 30px; font-weight: 800;
+  letter-spacing: -0.5px; margin-bottom: 4px;
+}
+.login-form-box .form-desc {
+  font-size: 13px; color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+/* Tabs de perfil */
+.login-tabs {
+  display: flex;
+  background: var(--bg-app);
+  border-radius: var(--r-sm);
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-subtle);
+}
+.login-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 11px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--transition);
+  background: transparent;
+  border: 1px solid transparent;
+  font-family: var(--font-body);
+  color: var(--text-muted);
+}
+.login-tab .lt-icon  { font-size: 20px; line-height: 1; }
+.login-tab .lt-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; }
+.login-tab.active {
+  background: var(--bg-elevated);
+  border-color: var(--border-accent);
+  color: var(--brand-300);
+}
+
+/* Campos */
+.login-field { margin-bottom: 16px; }
+.login-field label {
+  display: block;
+  font-size: 12px; font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase; letter-spacing: 0.8px;
+  margin-bottom: 6px;
+}
+.login-field input {
+  width: 100%;
+  padding: 11px 15px;
+  background: var(--bg-app);
+  border: 1.5px solid var(--border-mid);
+  border-radius: var(--r-sm);
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-primary);
+  outline: none;
+  transition: var(--transition);
+}
+.login-field input::placeholder { color: var(--text-muted); }
+.login-field input:focus {
+  border-color: var(--brand-500);
+  background: var(--bg-surface);
+  box-shadow: 0 0 0 3px rgba(77,83,160,0.2);
+}
+
+/* Botão entrar */
+.btn-login {
+  width: 100%;
+  padding: 13px;
+  background: var(--brand-700);
+  color: #fff;
+  border: none;
+  border-radius: var(--r-sm);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.btn-login::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+.btn-login:hover::before { transform: translateX(100%); }
+.btn-login:hover {
+  background: var(--brand-600);
+  box-shadow: var(--shadow-brand);
+  transform: translateY(-1px);
+}
+.btn-login:active { transform: translateY(0); }
+
+/* Demo box */
+.login-demo {
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: var(--bg-app);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--r-sm);
+}
+.login-demo .demo-title {
+  font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--text-muted); margin-bottom: 10px;
+}
+.demo-row {
+  display: flex; align-items: center;
+  gap: 10px; padding: 5px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 12px; color: var(--text-secondary);
+}
+.demo-row:last-child { border-bottom: none; }
+.demo-row .demo-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--brand-400); flex-shrink: 0; }
+.demo-row code {
+  font-size: 11px;
+  background: var(--bg-elevated);
+  padding: 2px 7px; border-radius: 4px;
+  color: var(--brand-300);
+  font-family: 'Courier New', monospace;
+}
+
+/* Responsivo */
+@media (max-width: 860px) {
+  .login-visual { display: none; }
+  .login-form-side { padding: 24px; background: var(--bg-app); }
+  .login-form-side::before { display: none; }
+  #tela-login { background: var(--bg-app); }
+}
